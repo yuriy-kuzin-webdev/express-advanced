@@ -10,7 +10,7 @@ const SALT = 3;
 class UserService {
   async registration(email, password) {
     const candidate = await UserModel.findOne({ email });
-    if (!candidate) {
+    if (candidate) {
       throw new Error(`User with ${email} already exists`);
     }
 
