@@ -12,14 +12,14 @@ class UserController {
       });
       return res.json(userData);
     } catch (error) {
-      next();
+      next(error);
     }
   }
 
   async login(req, res, next) {
     try {
     } catch (error) {
-      next();
+      next(error);
     }
   }
 
