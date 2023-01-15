@@ -57,7 +57,7 @@ class UserService {
       throw ApiError.BadRequest("Wrong password");
     }
     const userDto = new UserDto(user);
-    const tokens = tokenService.generateTokens(userDto);
+    const tokens = tokenService.generateTokens({ ...userDto });
     await tokenService.saveToken(userDto.id, tokens.refreshToken);
     return { ...tokens, user: userDto };
   }
