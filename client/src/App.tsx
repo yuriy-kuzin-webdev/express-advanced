@@ -11,12 +11,16 @@ function App() {
     }
   }, []);
 
+  if (!store.isAuth) {
+    return <LoginForm />;
+  }
+
   return (
     <div>
       <h1>
         {store.isAuth ? `Authorized ${store.user.email}` : "Not Authorized"}
       </h1>
-      <LoginForm />
+      <button onClick={() => store.logout()}>Logout</button>
     </div>
   );
 }
